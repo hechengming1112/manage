@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd" >
+
+    <!--<bean id="intefaseService" class="com.hecm.mystudent.interfase.two.IntefaseServiceImpl">
+        <property name="intefaseDao" ref="intefaseDao"></property>
+    </bean>-->
+
+    <bean id="intefaseService" class="com.hecm.mystudent.interfase.two.IntefaseServiceImpl">
+        <constructor-arg name="intefaseDao" ref="intefaseDao"></constructor-arg>
+    </bean>
+
+    <bean id="intefaseDao" class="com.hecm.mystudent.interfase.two.IntefaseDaoImpl"> </bean>
+
+</beans>
