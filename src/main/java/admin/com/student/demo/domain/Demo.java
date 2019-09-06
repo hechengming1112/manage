@@ -1,4 +1,4 @@
-package admin.com.student.demo.domin;
+package admin.com.student.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

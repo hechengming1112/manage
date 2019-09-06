@@ -1,6 +1,6 @@
 package admin.com.student.demo.controller;
 
-import admin.com.student.demo.domin.Demo;
+import admin.com.student.demo.domain.Demo;
 import admin.com.student.demo.service.DemoService;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
@@ -29,5 +29,7 @@ public class DemoController {
               return demoList;
 
        }
+
+
 
 }

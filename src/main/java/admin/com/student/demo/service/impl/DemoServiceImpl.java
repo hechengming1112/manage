@@ -1,6 +1,6 @@
 package admin.com.student.demo.service.impl;
 
-import admin.com.student.demo.domin.Demo;
+import admin.com.student.demo.domain.Demo;
 import admin.com.student.demo.mapper.DemoMapper;
 import admin.com.student.demo.service.DemoService;
 import org.springframework.stereotype.Service;
