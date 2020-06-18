@@ -1,4 +1,5 @@
 package admin.com.student.demo.mapper;
+
 import admin.com.student.demo.domain.Demo;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +11,5 @@ import java.util.List;
  */
 @Repository
 public interface DemoMapper {
-     List<Demo> getDemoList();
+    List<Demo> getDemoList();
 }

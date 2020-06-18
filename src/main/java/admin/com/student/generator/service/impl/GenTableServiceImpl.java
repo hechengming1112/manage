@@ -23,6 +23,7 @@ import java.io.StringWriter;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
 @Service
 public class GenTableServiceImpl implements IGenTableService {
 
@@ -42,8 +43,7 @@ public class GenTableServiceImpl implements IGenTableService {
     /**
      * 查询表信息并生成代码
      */
-    private void generatorCode(String tableName, ZipOutputStream zip)
-    {
+    private void generatorCode(String tableName, ZipOutputStream zip) {
         // 查询表信息
         GenTable table = genTableMapper.selectGenTableByName(tableName);
         // 查询列信息
@@ -56,22 +56,18 @@ public class GenTableServiceImpl implements IGenTableService {
 
         // 获取模板列表
         List<String> templates = VelocityUtils.getTemplateList(table.getTplCategory());
-        for (String template : templates)
-        {
+        for (String template : templates) {
             // 渲染模板
             StringWriter sw = new StringWriter();
             Template tpl = Velocity.getTemplate(template, Constants.UTF8);
             tpl.merge(context, sw);
-            try
-            {
+            try {
                 // 添加到zip
                 zip.putNextEntry(new ZipEntry(VelocityUtils.getFileName(template, table)));
                 IOUtils.write(sw.toString(), zip, Constants.UTF8);
                 IOUtils.closeQuietly(sw);
                 zip.closeEntry();
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 log.error("渲染模板失败，表名：" + table.getTableName(), e);
             }
         }
@@ -80,21 +76,17 @@ public class GenTableServiceImpl implements IGenTableService {
     /**
      * 设置主键列信息
      *
-     * @param table 业务表信息
+     * @param table   业务表信息
      * @param columns 业务字段列表
      */
-    public void setPkColumn(GenTable table, List<GenTableColumn> columns)
-    {
-        for (GenTableColumn column : columns)
-        {
-            if (column.isPk())
-            {
+    public void setPkColumn(GenTable table, List<GenTableColumn> columns) {
+        for (GenTableColumn column : columns) {
+            if (column.isPk()) {
                 table.setPkColumn(column);
                 break;
             }
         }
-        if (StringUtils.isNull(table.getPkColumn()))
-        {
+        if (StringUtils.isNull(table.getPkColumn())) {
             table.setPkColumn(columns.get(0));
         }
     }

@@ -23,8 +23,7 @@ public class GenController extends BaseController {
      * 生成代码
      */
     @GetMapping("/genCode/{tableName}")
-    public void genCode(HttpServletResponse response, @PathVariable("tableName") String tableName) throws IOException
-    {
+    public void genCode(HttpServletResponse response, @PathVariable("tableName") String tableName) throws IOException {
         byte[] data = genTableService.generatorCode(tableName);
         genCode(response, data);
     }
@@ -32,8 +31,7 @@ public class GenController extends BaseController {
     /**
      * 生成zip文件
      */
-    private void genCode(HttpServletResponse response, byte[] data) throws IOException
-    {
+    private void genCode(HttpServletResponse response, byte[] data) throws IOException {
         response.reset();
         response.setHeader("Content-Disposition", "attachment; filename=\"mystudent.zip\"");
         response.addHeader("Content-Length", "" + data.length);

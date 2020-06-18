@@ -44,7 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="dictType"       column="dict_type"      />
         <result property="sort"           column="sort"           />
         <result property="createBy"       column="create_by"      />
-        <result property="createTime"     column="create_time"    />
+        <result property="createTime"     column="create_t ime"    />
         <result property="updateBy"       column="update_by"      />
         <result property="updateTime"     column="update_time"    />
     </resultMap>
